@@ -1,19 +1,5 @@
-CRYSTAL = crystal
-UNAME = "$(shell uname -ms)"
-LIBRARY_PATH = $(shell brew --prefix crystal-lang)/embedded/lib
-LIBS = -levent -lpcl -lpcre -lgc -lpthread
-LDFLAGS = -Wl,-undefined,dynamic_lookup
+cr_math.bundle: cr_math.cr
+	crystal cr_math.cr --release --link-flags "-dynamic -bundle -Wl,-undefined,dynamic_lookup" -o cr_math.bundle
 
-TARGET = cr_math.bundle
-
-$(TARGET): cr_math.o
-	$(CC) -bundle -L$(LIBRARY_PATH) -o $@ $^ $(LIBS) $(LDFLAGS)
-
-cr_math.o: cr_math.cr
-	$(CRYSTAL) build --cross-compile $(UNAME) $<
-
-.PHONY: clean
 clean:
-	rm -f bc_flags
-	rm -f cr_math.o
-	rm -f $(TARGET)
+	rm -f cr_math.bundle
