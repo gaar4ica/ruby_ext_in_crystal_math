@@ -1,13 +1,13 @@
-# Extension for Ruby written in Crystal via gem
+# Native Extension for Ruby written in Crystal
 
-Make sure [installed crystal](http://crystal-lang.org/docs/installation/index.html) first.
-Then add gem *ruby_ext_in_crystal_math* to Gemfile
+1. [Install crystal](http://crystal-lang.org/docs/installation/index.html).
+2. Add *ruby_ext_in_crystal_math* to your Gemfile:
 ```Gemfile
-gem 'ruby_ext_in_crystal_math', git: 'git@github.com:gaar4ica/ruby_ext_in_crystal_math.git'
+gem 'ruby_ext_in_crystal_math', github: 'gaar4ica/ruby_ext_in_crystal_math'
 ```
-and execute `bundle install`
+3. Run `bundle install`
  
-### Benchmarking
+### Benchmark Results
 
 ```sh
 $ irb
