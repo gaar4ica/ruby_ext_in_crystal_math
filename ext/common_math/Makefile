@@ -14,6 +14,8 @@ LIBS = -levent -lpcre -lgc -lpthread -lruby -ldl -lm -lc
 LDFLAGS = -L. -fstack-protector -rdynamic -Wl,-export-dynamic,-undefined,dynamic_lookup
 TARGET = $(SO_NAME).so
 
+install: $(TARGET)
+
 $(TARGET): $(SO_NAME).o
 	$(CC) -shared $^ -o $@ $(LIBCRYSTAL) -L$(LIBRARY_PATH) -L$(LIBRUBY) $(LIBS) $(LDFLAGS)
 
